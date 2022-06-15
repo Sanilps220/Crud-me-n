@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<html>
+  
+        <head>
+            <title>SAmple file</title>
+            <link rel="stylesheet" href="./styles.css"/>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        </head>
+        <body> 
+            <div id="container" >
+            <header>
+                <h1> Simple Studey</h1>
+            </header>
+            <aside>
+                <h2>Share your thoughts to beginners</h2>
+                <h3>share your favourite ideas in coding</h3>
+                <!-- Add form to ask viewers for input-->
+                <form action="/comments" method="POST">
+                    <input type="text" name="name" 
+                    placeholder="First name"/>
+                    <textarea rows="4" name="comment">Enter here what kind knowledge in programing language you have !</textarea>
+                    <input type="submit" value="Submit"/>
+                </form>
+                 <p id="doc" class="fr" style="font-weight: 400;"></p>
+                <div class="sugx">
+                   
+                    <p id="suggestions"> </p>
+                </div>
+            </aside>
+            <article>
+                <h2>All about  javascript</h2>
+                <h3>The best practices for programer coding and coding..</h3>
+
+                <p>How to start a careaer in web developing 
+                    whatever is your past, no worrey you can do coding no degree only thing you 
+                    set a domain a and practices codig base. Also you can use a self studey 
+                    <a href=". . .">lokzl</a>
+                    lot of professionals added free classes on the internet. You can find it and
+                    some baics web sites i recommented "W3C, JavaTpoint", and channel "Debug media". 
+                </p>
+                <img src="C:\Users\Admin\Desktop\Finger_position_on_a_keyboard.png" alt="" width="300">
+                <!-- Add some images-->
+                <h4>Top cummuninty</h4>
+                <ol>
+                    <li>Stack overflow</li>
+                    <li>javascript cummuninty</li>
+                    <li>Full stack developers</li>
+                    <li>node js cummuninty</li>
+                </ol>
+                <h4>Platforms</h4>
+                <ul>
+                    <li>Adobe xd Figma styleing</li>
+                    <li>node</li>
+                    <li>Angular liberies</li>
+                    <li>Express frame work</li>
+
+                </ul>
+            </article>
+            <footer>
+               SS ajax bson bom asd vsd css
+            </footer>
+        </div>
+       
+
+
+
+        <script>
+            document.getElementById("doc").innerText = "Comments:";
+
+            getComments();
+           
+            function getComments(){
+                $.get('/comments',function(data){
+                    if (!data){console.log("No data recived");}
+                    console.log("Recived data successfuly");
+
+                    for(var i =0 ;i<data.length;i++){
+                        console.log(data[i].name);
+                    }
+                    showCommwnts(data)
+                })
+            }
+
+            function showCommwnts(comments){
+                var commentSession = document.getElementById("suggestions");
+                for(var i=0;i< comments.length;i ++){
+                    var section= document.createElement("section");
+                    section.className == "suggestion";
+
+                    var heading= document.createElement("h5");
+                    heading.innerHTML = comments[i].name;
+
+                    var comment =document.createElement("p");
+                    comment.innerHTML = comments[i].comment;
+
+                    section.appendChild(heading);
+                    section.appendChild(comment);
+                    commentSession.appendChild(section);
+                    console.log(comment);
+                }
+            }
+        </script>
+        </body>
+</html>
