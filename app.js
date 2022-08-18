@@ -35,6 +35,11 @@ app.get('/comments',(req,res)=>{
     
 });
 
+app.get('/font',(req,res)=>{
+  var myObj = req.body;
+  res.json({user:true});
+})
+
 app.post('/comments',(req,res)=>{
     var myObj = req.body;
     MongoClient.connect(url,(err,db)=>{   
@@ -43,7 +48,7 @@ app.post('/comments',(req,res)=>{
     if(err) throw err;
     res.status(200).redirect('hello.html')
    });
-   }); 
+  }); 
 
 });
 var PORT = 3000
