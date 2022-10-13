@@ -52,8 +52,7 @@ h1,h3,h4{
 }
 .sugx{
     
-    overflow-y:scroll;
-   
+    overflow-y:scroll;   
     position: relative;
     height: 18em;
     overflow: scroll;

@@ -22,12 +22,12 @@
                     <textarea rows="4" name="comment">Enter here what kind knowledge in programing language you have !</textarea>
                     <input type="submit" value="Submit"/>
                 </form>
-                 <p id="doc" class="fr" style="font-weight: 400;"></p>
-                <div class="sugx">
-                   
+                    <p id="doc" class="fr" style="font-weight: 400;"></p>
+                    <div class="sugx">                   
                     <p id="suggestions"> </p>
-                </div>
+                    </div>
             </aside>
+
             <article>
                 <h2>All about  javascript</h2>
                 <h3>The best practices for programer coding and coding..</h3>
@@ -72,10 +72,12 @@
            
             function getComments(){
                 $.get('/comments',function(data){
-                    if (!data){console.log("No data recived");}
+                    if (!data){
+                    console.log("No data recived");
+                    }
                     console.log("Recived data successfuly");
 
-                    for(var i =0 ;i<data.length;i++){
+                    for(var i =0 ;i <data.length;i++){
                         console.log(data[i].name);
                     }
                     showCommwnts(data)
@@ -85,6 +87,7 @@
             function showCommwnts(comments){
                 var commentSession = document.getElementById("suggestions");
                 for(var i=0;i< comments.length;i ++){
+                    
                     var section= document.createElement("section");
                     section.className == "suggestion";
 
